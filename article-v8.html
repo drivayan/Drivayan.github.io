@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Last Roar: Future of V8 Engines | DRIVAYAN</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat',sans-serif; }
+    body{ background:#050505; color:#fff; overflow-x:hidden; }
+
+    /* BACK BUTTON */
+    .back{ position:fixed; top:30px; left:30px; font-size:12px; letter-spacing:2px; color:#aaa; cursor:pointer; z-index:10; transition:0.3s; }
+    .back:hover{ color:#fff; }
+
+    /* HEADER */
+    header{ padding:140px 12% 60px; max-width:1200px; }
+    header h1{ font-family: 'Playfair Display', serif; font-size:clamp(2.8rem,6vw,5rem); font-weight:900; line-height:1.1; margin-bottom: 20px;}
+    header p{ font-size:12px; letter-spacing:4px; color:#777; text-transform: uppercase; }
+
+    /* ARTICLE BODY */
+    article{ padding:0 12% 140px; max-width:1000px; }
+    article p{ font-size:18px; line-height:1.9; color:#bbb; margin-bottom: 32px; font-weight: 300; }
+    article h2{ font-family: 'Playfair Display', serif; font-size: 32px; margin: 60px 0 24px; color: #fff; letter-spacing: 1px; }
+
+    /* STATUS BOX */
+    .status-box {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 60px 0;
+      padding: 40px;
+      gap: 40px;
+    }
+    .status-column h3 { font-size: 13px; letter-spacing: 3px; margin-bottom: 25px; color: #fff; text-transform: uppercase; }
+    .status-column.survival h3 { color: #ffffff; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 10px; }
+    .status-column.threat h3 { color: #888; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+    .status-list { list-style: none; }
+    .status-list li { font-size: 15px; color: #999; margin-bottom: 18px; line-height: 1.4; }
+    .status-list strong { color: #fff; display: block; margin-bottom: 4px; font-size: 14px; letter-spacing: 1px; }
+
+    /* FILM GRAIN */
+    body::after{ content:''; position:fixed; inset:0; background:url("https://grainy-gradients.vercel.app/noise.svg"); opacity:0.05; pointer-events:none; z-index:999; }
+
+    @media(max-width:768px){
+      header, article{ padding-left:8%; padding-right:8%; }
+      .status-box { grid-template-columns: 1fr; padding: 30px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="back" onclick="goBack()">← BACK</div>
+
+  <header>
+    <h1>The Last Roar: Is the V8 Engine Entering its Final Act?</h1>
+    <p>Mechanical Soul in an Age of Silicon and Electricity</p>
+  </header>
+
+  <article>
+    <p>
+      There is a specific frequency—a low-pitched, rhythmic thrum—that defines the V8 engine. It is a sound that bypasses the ears and settles directly in the chest. For over a century, the V8 has been the heartbeat of the automotive world, powering everything from blue-collar muscle cars to the most exclusive European exotics. 
+    </p>
+
+    <p>
+      But as we cross into the mid-2020s, the mechanical symphony is being met with a wall of silence. Tightening emission norms, the relentless march of electrification, and the efficiency of downsized turbocharged engines have put a target on the back of the eight-cylinder block.
+    </p>
+
+    <h2>The Hybrid Lifeline</h2>
+    <p>
+      The V8 isn't going down without a fight; it is simply evolving. We are seeing a new era of "Electrified Performance." Manufacturers like Lamborghini and Mercedes-AMG are no longer viewing the electric motor as a replacement, but as a forced-induction partner. By pairing a smaller high-revving V8 with high-output batteries, brands are achieving power figures that were once reserved for hypercars, all while keeping the soul of the engine alive for one more generation.
+    </p>
+
+    <div class="status-box">
+      <div class="status-column survival">
+        <h3>The Survival Strategy</h3>
+        <ul class="status-list">
+          <li><strong>Hybrid Integration</strong> Using 48V systems and PHEV tech to offset cold-start emissions.</li>
+          <li><strong>Synthetic Fuels</strong> Porsche and Ferrari’s bet on e-fuels to keep internal combustion legal.</li>
+          <li><strong>Ultra-Luxury Niche</strong> Transitioning from a mass-market option to a "high-jewelry" collectible.</li>
+        </ul>
+      </div>
+      <div class="status-column threat">
+        <h3>The Mounting Pressures</h3>
+        <ul class="status-list">
+          <li><strong>Euro 7 Standards</strong> The strictest hurdles yet for large displacement engines.</li>
+          <li><strong>EV Efficiency</strong> The inability to match the instant, silent torque of quad-motor setups.</li>
+          <li><strong>Corporate Image</strong> The shift in ESG goals making the V8 a difficult boardroom sell.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>A Shift in Value: From Tool to Totem</h2>
+    <p>
+      As the V8 becomes rarer, its value is shifting. It is moving away from being a "performance tool" and becoming a "mechanical totem." Much like a mechanical Swiss watch in an era of smartwatches, the V8 is being appreciated for its complexity, its character, and its flaws. 
+    </p>
+
+    <p>
+      In India, where the V8 was always a rare beast due to taxation and fuel costs, the upcoming years represent the last chance for enthusiasts to own a piece of this history. From the growl of a Mustang to the sophisticated snarl of a German twin-turbo, these engines are becoming heirloom assets.
+    </p>
+
+    <h2>The Verdict</h2>
+    <p>
+      The V8 engine will eventually go silent, but that day is not today. While the displacement might shrink and the turbochargers might grow, the eight-cylinder configuration remains the ultimate expression of automotive theater. We are currently living through the "Golden Sunset" of internal combustion—a time to celebrate the noise before the quiet takes over.
+    </p>
+
+    <p style="font-style: italic; color: #666;">
+      At DRIVAYAN, we believe that even if the future is electric, the stories we tell will always be fueled by the roar of the past.
+    </p>
+  </article>
+
+  <script>
+    gsap.from("body", { opacity: 0, duration: 1.2, ease: "power2.out" });
+    gsap.from("header h1", { opacity: 0, y: 40, duration: 1, delay: 0.3, ease: "power3.out" });
+
+    function goBack(){
+      gsap.to("body", { opacity: 0, duration: 0.5, onComplete: () => window.history.back() });
+    }
+  </script>
+
+</body>
+</html>

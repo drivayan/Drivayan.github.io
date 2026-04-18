@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COMING SOON | DRIVAYAN Garage Shop</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat',sans-serif; }
+    body{ background:#000; color:#fff; overflow-x:hidden; display: flex; justify-content: center; align-items: center; min-height: 100vh; text-align: center;}
+
+    /* LOGO SECTION */
+    .logo-container {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      z-index: 10;
+    }
+    .logo-container h2 {
+      font-size: 24px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* MAIN CONTENT */
+    main {
+      padding: 20px;
+      max-width: 800px;
+    }
+    main h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 30px;
+      color: #fff;
+    }
+    main p {
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      color: #D4AF37;
+      margin-bottom: 50px;
+      letter-spacing: 1.5px;
+    }
+
+    /* BUTTON GROUP */
+    .btn-group {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    /* COMMON BUTTON STYLES */
+    .btn {
+      display: inline-block;
+      padding: 18px 40px;
+      font-size: 14px;
+      font-weight: 700;
+      border: none;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+    }
+
+    /* GET NOTIFIED BUTTON */
+    .btn-primary {
+      color: #000;
+      background: #D4AF37;
+    }
+    .btn-primary:hover {
+      background: #0000; 
+      color: #D4AF37;
+      transform: translateY(-2px);
+    }
+
+       /* FOOTER */
+    footer {
+      position: absolute;
+      bottom: 50px;
+      width: 100%;
+      text-align: center;
+      z-index: 5;
+    }
+    footer p {
+      font-size: 12px;
+      color: #D4AF37;
+      letter-spacing: 2px;
+    }
+
+    /* FILM GRAIN - Subtler than original */
+    body::after{ content:''; position:fixed; inset:0; background:url("https://grainy-gradients.vercel.app/noise.svg"); opacity:0.04; pointer-events:none; z-index:999; }
+
+    /* BACKGROUND ELEMENT - Abstract, technical feel */
+    .bg-shape {
+      position: absolute;
+      bottom: -150px;
+      right: -150px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 70%);
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    @media(max-width:768px){
+      .logo-container { top: 30px; left: 30px; }
+      .logo-container h2 { font-size: 20px; }
+      main h1 { font-size: clamp(2.8rem, 7vw, 5rem); }
+      .btn-group { flex-direction: column; gap: 15px; } /* Stack buttons on mobile */
+      footer { bottom: 30px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="logo-container">
+    <h2>DRIVAYAN</h2>
+  </div>
+
+  <div class="bg-shape"></div>
+
+  <main>
+    <h1>The Garage Shop.<br> Arriving Soon.</h1>
+    <p>We're fine-tuning the ultimate destination for the automotive connoisseur. Prepare your machine.</p>
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="notifyMe()">Get Notified</button>
+         </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 DRIVAYAN MEDIA. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Initial animation using GSAP
+    gsap.from("body", { opacity: 0, duration: 1.2, ease: "power2.out" });
+    gsap.from(".logo-container", { opacity: 0, y: -20, duration: 0.8, delay: 0.3, ease: "back.out(1.7)" });
+    gsap.from("main h1", { opacity: 0, y: 40, duration: 1, delay: 0.5, ease: "power3.out" });
+    gsap.from("main p", { opacity: 0, y: 30, duration: 1, delay: 0.7, ease: "power3.out" });
+    gsap.from(".btn", { opacity: 0, y: 20, duration: 0.8, delay: 0.9, ease: "power3.out", stagger: 0.1 }); /* Stagger button entrance */
+    gsap.from("footer", { opacity: 0, duration: 1, delay: 1.2, ease: "power2.out" });
+
+    // "Get Notified" button animation and simple interaction
+    function notifyMe(){
+      gsap.to(".btn-primary", {
+        scale: 1.05,
+        duration: 0.1,
+        ease: "power2.inOut",
+        yoyo: true,
+        repeat: 1,
+        onComplete: () => {
+          alert("We've got you on the list. We'll send word when the garage doors open!");
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

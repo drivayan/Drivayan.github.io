@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Drivayan Manifesto | DRIVAYAN</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat',sans-serif; }
+    body{ background:#050505; color:#fff; overflow-x:hidden; }
+
+    /* BACK BUTTON */
+    .back{ position:fixed; top:30px; left:30px; font-size:12px; letter-spacing:2px; color:#aaa; cursor:pointer; z-index:10; transition:0.3s; }
+    .back:hover{ color:#fff; }
+
+    /* HEADER */
+    header{ padding:140px 12% 60px; max-width:1200px; }
+    header h1{ font-family: 'Playfair Display', serif; font-size:clamp(2.8rem,6vw,5.2rem); font-weight:900; line-height:1; margin-bottom: 25px;}
+    header p{ font-size:11px; letter-spacing:5px; color:#888; text-transform: uppercase; font-weight: 700; }
+
+    /* ARTICLE BODY */
+    article{ padding:0 12% 140px; max-width:1050px; }
+    article p{ font-size:18px; line-height:2; color:#ccc; margin-bottom: 35px; font-weight: 300; }
+    article h2{ font-family: 'Playfair Display', serif; font-size: clamp(24px, 4vw, 36px); margin: 80px 0 30px; color: #fff; line-height: 1.2; }
+    
+    .dropcap { float: left; font-family: 'Playfair Display', serif; font-size: 85px; line-height: 60px; padding-top: 4px; padding-right: 12px; color: #fff; }
+
+    /* SECTION HIGHLIGHT BLOCKS */
+    .feature-block {
+      background: rgba(255,255,255,0.02);
+      border-left: 1px solid rgba(255,255,255,0.1);
+      margin: 70px 0;
+      padding: 60px;
+    }
+    .feature-block h3 { font-family: 'Playfair Display', serif; font-size: 30px; margin-bottom: 20px; color: #fff; font-style: italic; }
+    .feature-block span { font-size: 10px; letter-spacing: 4px; color: #666; text-transform: uppercase; display: block; margin-bottom: 15px; }
+
+    /* THREE COLUMN GRID */
+    .manifesto-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      margin: 80px 0;
+    }
+    .grid-item h4 { font-size: 13px; letter-spacing: 3px; color: #fff; margin-bottom: 15px; text-transform: uppercase; }
+    .grid-item p { font-size: 15px; line-height: 1.6; color: #888; }
+
+    /* FILM GRAIN */
+    body::after{ content:''; position:fixed; inset:0; background:url("https://grainy-gradients.vercel.app/noise.svg"); opacity:0.05; pointer-events:none; z-index:999; }
+
+    @media(max-width:768px){
+      header, article{ padding-left:8%; padding-right:8%; }
+      .feature-block { padding: 40px 30px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="back" onclick="window.history.back()">← BACK</div>
+
+  <header>
+    <p>The Opening Note</p>
+    <h1>Introducing DRIVAYAN: Mechanical Precision, Cinematic Soul.</h1>
+  </header>
+
+  <article>
+    <p>
+      <span class="dropcap">W</span>elcome to the vanguard of automotive storytelling. In a world increasingly cluttered by fast-paced reviews and spec-sheet comparisons, <strong>DRIVAYAN</strong> was born from a singular, quiet realization: Cars are not just machines. They are the milestones of our personal journeys, the artifacts of our engineering ambition, and the vessels of our freedom.
+    </p>
+
+    <p>
+      DRIVAYAN is more than an automotive platform; it is a digital sanctuary for the purist. We believe that the sound of a cold-start at 4:00 AM in the Himalayas tells a more profound story than any 0-100 km/h statistic ever could. We are here to decode Indian car culture, one drive at a time.
+    </p>
+
+    <div class="feature-block">
+      <span>Volume I</span>
+      <h3>Safar Nama: The Travelogues of the Soul</h3>
+      <p style="margin-bottom:0;">
+        "Safar Nama" is our cinematic lens on the road. It isn't about reaching a destination; it is about the poetry of the transit. Through Safar Nama, we document the rhythm of the Indian landscape—from the salt-crusted horizons of the Rann of Kutch to the oxygen-thin passes of Spiti. These are long-form narratives where the car is a character, and the road is the dialogue. It is automotive journalism, slowed down and rendered with mechanical reverence.
+      </p>
+    </div>
+
+    <h2>Beyond the Commute</h2>
+    <p>
+      Why do we drive? For some, it is a necessity of the commute. For us, it is a rebellion. The Indian automotive landscape is shifting; we are moving toward a future of screens and sensors. While we embrace the new, DRIVAYAN exists to ensure that we don't forget the tactile "clack" of a gated manual or the hydraulic feedback of a steering wheel that fights back. We document the transition—celebrating the icons of the past while scrutinizing the innovators of the future.
+    </p>
+
+    <div class="feature-block">
+      <span>Volume II</span>
+      <h3>Gear & Gupshup: The Enthusiast's Roundtable</h3>
+      <p style="margin-bottom:0;">
+        If Safar Nama is the poetry, "Gear & Gupshup" is the prose. This is where the mechanical precision comes in. From deep-dives into restoration philosophy to the legal nuances of the modification industry, Gear & Gupshup is the heartbeat of the community. We talk tech, we debate culture, and we share the "Gupshup"—the raw, unfiltered conversations that happen at car meets and roadside dhabas. It is where engineering meets emotion.
+      </p>
+    </div>
+
+    <h2>The Pillars of Our Manifesto</h2>
+    <div class="manifesto-grid">
+      <div class="grid-item">
+        <h4>Cinematic Truth</h4>
+        <p>We believe in high-fidelity storytelling. Every image and every word is curated to reflect the raw aesthetic of the machine.</p>
+      </div>
+      <div class="grid-item">
+        <h4>Mechanical Honor</h4>
+        <p>We respect the engineers. We look past the marketing fluff to see the metal, the oil, and the intention behind the design.</p>
+      </div>
+      <div class="grid-item">
+        <h4>The Human Factor</h4>
+        <p>A car is nothing without its driver. We focus on the bond between man and machine—the stories that make ownership meaningful.</p>
+      </div>
+    </div>
+
+    <h2>The Road Ahead</h2>
+    <p>
+      As you navigate through DRIVAYAN, you will find a blend of high-end photography, analytical insights, and raw travelogues. We invite you to stay a while, to look past the screens, and to listen to the engine. Whether you are here for the technical breakdown of a V8 or the moonlit miles of a desert crossing, you are among those who understand.
+    </p>
+
+    <p style="font-style: italic; color: #fff; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px;">
+      Welcome to the journey. Welcome to DRIVAYAN.
+    </p>
+  </article>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from("body", { opacity: 0, duration: 1.5, ease: "power2.out" });
+    gsap.from("header h1", { opacity: 0, y: 50, duration: 1.2, delay: 0.3, ease: "power4.out" });
+    
+    gsap.utils.toArray("p, .feature-block, h2, .grid-item").forEach(el => {
+      gsap.from(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: "top 90%",
+        },
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        ease: "power2.out"
+      });
+    });
+  </script>
+
+</body>
+</html>
