@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Exclusivity Paradox: Mahindra BE6 Batman Edition | DRIVAYAN</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat',sans-serif; }
+    body{ background:#000; color:#fff; overflow-x:hidden; }
+
+    /* BACK BUTTON */
+    .back{ position:fixed; top:30px; left:30px; font-size:12px; letter-spacing:2px; color:#aaa; cursor:pointer; z-index:10; transition:0.3s; }
+    .back:hover{ color:#fff; }
+
+    /* HEADER */
+    header{ padding:140px 12% 60px; max-width:1200px; }
+    header h1{ font-family: 'Playfair Display', serif; font-size:clamp(2.8rem,6vw,5rem); font-weight:900; line-height:1.1; margin-bottom: 20px;}
+    header p{ font-size:12px; letter-spacing:4px; color:#777; text-transform: uppercase; }
+
+    /* ARTICLE BODY */
+    article{ padding:0 12% 140px; max-width:1000px; }
+    article p{ font-size:18px; line-height:1.9; color:#bbb; margin-bottom: 32px; }
+    article h2{ font-size: 28px; margin: 60px 0 20px; color: #fff; letter-spacing: 1px; }
+
+    /* PROS & CONS BOX */
+    .comparison-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 60px 0;
+      padding: 40px;
+      gap: 40px;
+    }
+    .comp-column h3 { font-size: 14px; letter-spacing: 3px; margin-bottom: 20px; color: #fff; }
+    .comp-column.pros h3 { color: #4ade80; }
+    .comp-column.cons h3 { color: #f87171; }
+    .comp-list { list-style: none; }
+    .comp-list li { font-size: 15px; color: #999; margin-bottom: 15px; padding-left: 20px; position: relative; }
+    .comp-list li::before { content: '—'; position: absolute; left: 0; color: #444; }
+
+    /* FILM GRAIN */
+    body::after{ content:''; position:fixed; inset:0; background:url("https://grainy-gradients.vercel.app/noise.svg"); opacity:0.06; pointer-events:none; z-index:999; }
+
+    @media(max-width:768px){
+      header, article{ padding-left:8%; padding-right:8%; }
+      .comparison-box { grid-template-columns: 1fr; padding: 30px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="back" onclick="goBack()">← BACK</div>
+
+  <header>
+    <h1>The Cost of "Limited": Why the BE6 Batman Relaunch Stings</h1>
+    <p>Exclusivity, Broken Promises, and the Mahindra BE6 Aftermath</p>
+  </header>
+
+  <article>
+    <p>
+      In the world of high-performance EVs, a "Limited Edition" badge isn't just a sticker; it's a contract. When Mahindra first unveiled the BE6 Batman Edition, it was marketed as a rare piece of automotive pop culture—a dark, brooding flagship for the early adopters who wanted to stand out. But with the recent relaunch, that silent contract has been Loudly broken.
+    </p>
+
+    <h2>The Dilution of a Dream</h2>
+    <p>
+      Early customers bought into the Batman Edition specifically because they were told it wouldn't be for everyone. They paid a premium for the matte-black finishes, the unique interior accents, and the psychological satisfaction of owning one of a few. By bringing the edition back to the assembly line, Mahindra has effectively transformed a "Collector’s Item" into a "Mass-Market Trim."
+    </p>
+
+    <div class="comparison-box">
+      <div class="comp-column pros">
+        <h3>THE APPEAL</h3>
+        <ul class="comp-list">
+          <li>Stunning Stealth Aesthetic: The matte finish remains the best in its class.</li>
+          <li>Instant Recognition: A design that stops traffic and sparks conversations.</li>
+          <li>Performance: The BE6 platform's agility paired with 'Dark Knight' styling.</li>
+          <li>Collector Value: (Originally) projected to hold high resale due to rarity.</li>
+        </ul>
+      </div>
+      <div class="comp-column cons">
+        <h3>THE BETRAYAL</h3>
+        <ul class="comp-list">
+          <li>Exclusivity Killed: Relaunching a limited series devalues the original 500 units.</li>
+          <li>Resale Crash: When supply increases, the "rare" factor for early owners vanishes.</li>
+          <li>Trust Deficit: Customers now question the "Limited" tag on future Mahindra products.</li>
+          <li>Brand Prestige: Moving from bespoke to repetitive hurts the BE sub-brand's luxury aim.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>A Legacy Disregarded</h2>
+    <p>
+      Automotive history is littered with brands that overplayed their hand with special editions. When a manufacturer tells an enthusiast, "You are one of the few," and then decides six months later to make everyone else "one of the many," it leaves a bitter taste. The early BE6 owners weren't just buying a car; they were investing in Mahindra’s new EV vision. In return, their exclusivity was traded for a quick sales boost.
+    </p>
+
+    <h2>The Verdict on "Limited" Labels</h2>
+    <p>
+      The BE6 Batman Edition remains a technical marvel and a visual masterpiece. However, the relaunch serves as a cautionary tale for the Indian automotive enthusiast. It proves that in the race for market share, the emotional investment of the "First Five Hundred" is often treated as collateral damage.
+    </p>
+
+    <p>
+      Ultimately, if "Limited" doesn't actually mean limited, then the word loses its power. For Drivayan, the story here isn't about the car—it's about the respect owed to the people who drive the brand forward.
+    </p>
+  </article>
+
+  <script>
+    gsap.from("body", { opacity: 0, duration: 1, ease: "power2.out" });
+    gsap.from("header h1", { opacity: 0, y: 30, duration: 1, delay: 0.3 });
+
+    function goBack(){
+      gsap.to("body", { opacity: 0, duration: 0.5, onComplete: () => window.history.back() });
+    }
+  </script>
+
+</body>
+</html>

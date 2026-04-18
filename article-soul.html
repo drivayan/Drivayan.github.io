@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>When Cars Had Soul | DRIVAYAN</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat',sans-serif; }
+    body{ background:#000; color:#fff; overflow-x:hidden; }
+
+    /* BACK BUTTON */
+    .back{ position:fixed; top:30px; left:30px; font-size:12px; letter-spacing:2px; color:#aaa; cursor:pointer; z-index:10; transition:0.3s; }
+    .back:hover{ color:#fff; }
+
+    /* HEADER */
+    header{ padding:140px 12% 60px; max-width:1200px; }
+    header h1{ font-family: 'Playfair Display', serif; font-size:clamp(2.8rem,6vw,5rem); font-weight:900; line-height:1.1; margin-bottom: 20px;}
+    header p{ font-size:12px; letter-spacing:4px; color:#777; text-transform: uppercase; }
+
+    /* ARTICLE BODY */
+    article{ padding:0 12% 140px; max-width:1000px; }
+    article p{ font-size:18px; line-height:1.9; color:#bbb; margin-bottom: 32px; }
+    article h2{ font-size: 28px; margin: 60px 0 20px; color: #fff; letter-spacing: 1px; border-left: 4px solid #fff; padding-left: 20px; }
+
+    /* PROS & CONS BOX */
+    .comparison-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 60px 0;
+      padding: 40px;
+      gap: 40px;
+    }
+    .comp-column h3 { font-size: 14px; letter-spacing: 3px; margin-bottom: 20px; color: #fff; text-transform: uppercase; }
+    .comp-column.pros h3 { color: #4ade80; }
+    .comp-column.cons h3 { color: #f87171; }
+    .comp-list { list-style: none; }
+    .comp-list li { font-size: 15px; color: #999; margin-bottom: 15px; padding-left: 20px; position: relative; line-height: 1.4; }
+    .comp-list li::before { content: '•'; position: absolute; left: 0; color: #555; }
+
+    /* FILM GRAIN */
+    body::after{ content:''; position:fixed; inset:0; background:url("https://grainy-gradients.vercel.app/noise.svg"); opacity:0.06; pointer-events:none; z-index:999; }
+
+    @media(max-width:768px){
+      header, article{ padding-left:8%; padding-right:8%; }
+      .comparison-box { grid-template-columns: 1fr; padding: 30px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="back" onclick="window.history.back()">← BACK</div>
+
+  <header>
+    <h1>When Cars Had Soul: The Era of Mechanical Purity</h1>
+    <p>Beyond the Algorithms — A Tribute to Driver Connection</p>
+  </header>
+
+  <article>
+    <p>
+      There was a time when driving was a conversation, not a command. You didn't just "operate" a vehicle; you negotiated with it. Before the era of drive-by-wire and predictive algorithms, cars were extensions of the driver’s nervous system. Today, we sit in digital cocoons where every input is filtered, smoothed, and sanitized by a silicon brain.
+    </p>
+
+    <h2>The Mechanical Dialogue</h2>
+    <p>
+      In an analog car, the "soul" wasn't a marketing buzzword—it was physical. It was the vibration of the engine traveling through the steering column, telling you exactly how much grip the front tires had left. It was the smell of fuel and warm oil, and the precise, metallic "clack" of a gated shifter. These cars didn't have "driving modes"; they had character, and they demanded your undivided attention.
+    </p>
+
+    <h2>The Rise of the Rolling Computer</h2>
+    <p>
+      Modern cars are objectively better in every measurable metric. They are faster, safer, and more efficient. But in the pursuit of perfection, we've lost the "imperfections" that made driving memorable. Electronic Stability Control (ESC) and Torque Vectoring can make a novice driver look like a hero, but they also act as a veil, hiding the raw physics of the machine from the person behind the wheel.
+    </p>
+
+    <div class="comparison-box">
+      <div class="comp-column pros">
+        <h3>THE ANALOG "SOUL"</h3>
+        <ul class="comp-list">
+          <li><strong>Tactile Feedback:</strong> Hydraulic steering and mechanical linkages provide a direct connection to the road.</li>
+          <li><strong>Simplicity:</strong> Fewer electronic components mean mechanical issues can often be diagnosed by ear or touch.</li>
+          <li><strong>Timelessness:</strong> Analog gauges and physical buttons don't "date" or lag like old tablet screens.</li>
+          <li><strong>Skill Reward:</strong> Without electronic aids, every perfect corner is a result of the driver's own talent.</li>
+          <li><strong>Repairability:</strong> Built with metal and bolts, these machines were designed to be fixed, not just replaced.</li>
+        </ul>
+      </div>
+      <div class="comp-column cons">
+        <h3>THE DIGITAL REALITY</h3>
+        <ul class="comp-list">
+          <li><strong>Complexity:</strong> Proprietary software makes DIY maintenance nearly impossible for the average owner.</li>
+          <li><strong>Muted Senses:</strong> Electronic power steering (EPS) often feels "dead" or artificial compared to hydraulic setups.</li>
+          <li><strong>Disposable Tech:</strong> Once an ECU or a main infotainment screen fails out of warranty, repair costs can total the car.</li>
+          <li><strong>Input Lag:</strong> Soft-touch buttons and touchscreens require looking away from the road, unlike physical knobs.</li>
+          <li><strong>Planned Obsolescence:</strong> Modern cars are built to be "smart" gadgets that eventually lose software support.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>The Purist's Rebellion</h2>
+    <p>
+      We are seeing a global resurgence in "analog" appreciation. Enthusiasts are flocking back to 90s icons and mechanical restomods because they miss the ceremony of driving. Even luxury brands like Ferrari are experimenting with "stripping away" digital clutter in special editions to bring back that tactile relationship between human and machine.
+    </p>
+
+    <h2>The Verdict</h2>
+    <p>
+      A car with a "soul" is one that allows for human error and rewards human excellence. While we cannot go back to a world without safety nets and efficiency, we must ask ourselves: are we still driving, or are we just passengers in a very fast computer? The thrill of the drive isn't found in a 12-inch screen; it’s found in the feedback from the steering wheel and the roar of a machine that breathes.
+    </p>
+  </article>
+
+  <script>
+    gsap.from("body", { opacity: 0, duration: 1.2, ease: "power2.out" });
+    gsap.from("header h1", { opacity: 0, y: 30, duration: 1, delay: 0.3 });
+    gsap.from(".comparison-box", { 
+      scrollTrigger: ".comparison-box",
+      opacity: 0, 
+      y: 40, 
+      duration: 1 
+    });
+  </script>
+
+</body>
+</html>

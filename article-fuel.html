@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Petrol vs Diesel 2026: The Great Indian Crossroads | DRIVAYAN</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat',sans-serif; }
+    body{ background:#000; color:#fff; overflow-x:hidden; }
+
+    /* BACK BUTTON */
+    .back{ position:fixed; top:30px; left:30px; font-size:12px; letter-spacing:2px; color:#aaa; cursor:pointer; z-index:10; transition:0.3s; }
+    .back:hover{ color:#fff; }
+
+    /* HEADER */
+    header{ padding:140px 12% 60px; max-width:1200px; }
+    header h1{ font-family: 'Playfair Display', serif; font-size:clamp(2.8rem,6vw,5rem); font-weight:900; line-height:1.1; margin-bottom: 20px;}
+    header p{ font-size:12px; letter-spacing:4px; color:#777; text-transform: uppercase; }
+
+    /* ARTICLE BODY */
+    article{ padding:0 12% 140px; max-width:1000px; }
+    article p{ font-size:18px; line-height:1.9; color:#bbb; margin-bottom: 32px; }
+    article h2{ font-size: 28px; margin: 60px 0 20px; color: #fff; letter-spacing: 1px; }
+
+    /* PROS & CONS BOX */
+    .comparison-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 60px 0;
+      padding: 40px;
+      gap: 40px;
+    }
+    .comp-column h3 { font-size: 14px; letter-spacing: 3px; margin-bottom: 20px; color: #fff; }
+    .comp-column.pros h3 { color: #fbbf24; } /* Petrol Yellow */
+    .comp-column.cons h3 { color: #60a5fa; } /* Diesel Blue */
+    .comp-list { list-style: none; }
+    .comp-list li { font-size: 15px; color: #999; margin-bottom: 15px; padding-left: 20px; position: relative; }
+    .comp-list li::before { content: '—'; position: absolute; left: 0; color: #444; }
+
+    /* FILM GRAIN */
+    body::after{ content:''; position:fixed; inset:0; background:url("https://grainy-gradients.vercel.app/noise.svg"); opacity:0.06; pointer-events:none; z-index:999; }
+
+    @media(max-width:768px){
+      header, article{ padding-left:8%; padding-right:8%; }
+      .comparison-box { grid-template-columns: 1fr; padding: 30px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="back" onclick="goBack()">← BACK</div>
+
+  <header>
+    <h1>Petrol vs Diesel 2026: The Final Choice at the Crossroads</h1>
+    <p>A Comprehensive Guide to India's Shifting Automotive Landscape</p>
+  </header>
+
+  <article>
+    <p>
+      As we navigate through 2026, the age-old "Petrol or Diesel?" question has evolved into a complex equation of taxation, regulation, and maintenance. Gone are the days when a ₹10 difference at the pump made Diesel an automatic choice. Today, the decision requires a surgical look at your lifestyle, your city, and your appetite for long-term risk.
+    </p>
+
+    <h2>The Regulatory Hammer: CAFE III & RDE</h2>
+    <p>
+      The 2026 landscape is defined by the upcoming <b>CAFE III (Corporate Average Fuel Efficiency)</b> norms scheduled for April 2027. Manufacturers are already pivoting. Diesel engines, burdened by the need for complex Selective Catalytic Reduction (SCR) systems and DPF hardware to meet strict Nitrogen Oxide (NOx) limits, have seen their price premiums swell to ₹2–3 Lakhs over Petrol counterparts.
+    </p>
+
+    <div class="comparison-box">
+      <div class="comp-column pros">
+        <h3>PETROL (THE URBAN CHOICE)</h3>
+        <ul class="comp-list">
+          <li><b>Lower Entry Barrier:</b> Significantly lower on-road price in 2026.</li>
+          <li><b>Regulatory Peace:</b> Not affected by the 10-year scrap rule in NCR.</li>
+          <li><b>Simplicity:</b> No DPF clogging issues in heavy city traffic.</li>
+          <li><b>Refinement:</b> Vibration-free idling and linear power delivery.</li>
+          <li><b>Turbo Tech:</b> Modern Turbo-Petrols now offer Diesel-like torque.</li>
+        </ul>
+      </div>
+      <div class="comp-column cons">
+        <h3>DIESEL (THE LONG-HAULER)</h3>
+        <ul class="comp-list">
+          <li><b>Torque Dominance:</b> Unbeatable "pulling power" for SUVs and hills.</li>
+          <li><b>Efficiency:</b> Still delivers 25-30% better real-world fuel economy.</li>
+          <li><b>Range:</b> Fewer fuel stops on the 1000km+ highway runs.</li>
+          <li><b>Resale Value:</b> In Tier-2/3 towns, Diesel remains the "Cash King."</li>
+          <li><b>Heavy Loading:</b> The only logical choice for 7-seater load lugging.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>The Math: When Does Diesel Pay Back?</h2>
+    <p>
+      In 2026, the "Break-Even" point has pushed further into the distance. With Petrol at ~₹105 and Diesel at ~₹92 in major metros, the fuel price gap is narrow. Combined with higher service costs—Diesel oil changes and DPF additive (AdBlue) refills—you realistically need to drive <b>1,500 km per month</b> (18,000 km/year) to justify the upfront Diesel cost within 5 years.
+    </p>
+
+    <h2>The DPF Nightmare: A City Warning</h2>
+    <p>
+      If your daily drive is less than 10km in bumper-to-bumper traffic, a 2026 Diesel engine is a liability. Modern Diesel Particulate Filters (DPF) require "regeneration"—which means driving at high speeds for 20 minutes. Without this, your SUV goes into "Limp Mode." For the pure city dweller, the <b>Turbo-Petrol</b> or the emerging <b>Strong Hybrid</b> has effectively replaced the small Diesel engine.
+    </p>
+
+    <h2>The Verdict</h2>
+    <p>
+      The year 2026 marks the "Sunset Era" for small Diesels. If you are buying a hatchback or a compact sedan, stick to <b>Petrol</b>. However, if you are eyeing a Safari, XUV700, or Scorpio-N for pan-India touring, <b>Diesel</b> remains the soul of the machine.
+    </p>
+
+    <p>
+      Choose with your head for the city, but let your heart (and your highway mileage) decide for the open road.
+    </p>
+  </article>
+
+  <script>
+    gsap.from("body", { opacity: 0, duration: 1, ease: "power2.out" });
+    gsap.from("header h1", { opacity: 0, y: 30, duration: 1, delay: 0.3 });
+
+    function goBack(){
+      gsap.to("body", { opacity: 0, duration: 0.5, onComplete: () => window.history.back() });
+    }
+  </script>
+
+</body>
+</html>

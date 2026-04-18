@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safar Nama: Jaipur to Jaisalmer in a Revuelto | DRIVAYAN</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat',sans-serif; }
+    body{ background:#050505; color:#fff; overflow-x:hidden; }
+
+    /* BACK BUTTON */
+    .back{ position:fixed; top:30px; left:30px; font-size:12px; letter-spacing:2px; color:#aaa; cursor:pointer; z-index:10; transition:0.3s; }
+    .back:hover{ color:#fff; }
+
+    /* HEADER */
+    header{ padding:140px 12% 60px; max-width:1200px; }
+    header h1{ font-family: 'Playfair Display', serif; font-size:clamp(2.8rem,6vw,5rem); font-weight:900; line-height:1.1; margin-bottom: 20px;}
+    header p{ font-size:12px; letter-spacing:4px; color:#777; text-transform: uppercase; }
+
+    /* ARTICLE BODY */
+    article{ padding:0 12% 140px; max-width:1000px; }
+    article p{ font-size:18px; line-height:1.9; color:#bbb; margin-bottom: 32px; font-weight: 300; }
+    article h2{ font-family: 'Playfair Display', serif; font-size: 32px; margin: 60px 0 24px; color: #fff; letter-spacing: 1px; }
+
+    /* JOURNEY STATS BOX */
+    .journey-box {
+      background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 60px 0;
+      padding: 40px;
+      gap: 40px;
+    }
+    .stat-column h3 { font-size: 13px; letter-spacing: 3px; margin-bottom: 25px; color: #fff; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+    .stat-list { list-style: none; }
+    .stat-list li { font-size: 15px; color: #999; margin-bottom: 18px; line-height: 1.4; }
+    .stat-list strong { color: #fff; display: block; margin-bottom: 4px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; }
+
+    /* QUOTE SECTION */
+    .pull-quote {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        font-size: 28px;
+        color: #fff;
+        border-left: 2px solid #fff;
+        padding-left: 30px;
+        margin: 60px 0;
+        line-height: 1.4;
+    }
+
+    /* FILM GRAIN */
+    body::after{ content:''; position:fixed; inset:0; background:url("https://grainy-gradients.vercel.app/noise.svg"); opacity:0.05; pointer-events:none; z-index:999; }
+
+    @media(max-width:768px){
+      header, article{ padding-left:8%; padding-right:8%; }
+      .journey-box { grid-template-columns: 1fr; padding: 30px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="back" onclick="goBack()">← BACK</div>
+
+  <header>
+    <h1>Safar Nama: 1,001 Horses in the Thar Desert</h1>
+    <p>Jaipur to Jaisalmer in the Lamborghini Revuelto</p>
+  </header>
+
+  <article>
+    <p>
+      The Pink City was still asleep when the V12 woke up. In the subterranean parking of a Jaipur heritage hotel, the Lamborghini Revuelto’s cold start doesn't just make noise—it creates an atmospheric shift. This is the <i>Safar Nama</i>: a 550km pilgrimage across the golden heart of Rajasthan in the world’s first V12 High Performance Electrified Vehicle (HPEV).
+    </p>
+
+    <div class="pull-quote">
+        "There is something poetic about 1,001 Italian horses galloping toward a medieval sandstone fortress."
+    </div>
+
+    <h2>Beyond the Aravallis</h2>
+    <p>
+      As we left the chaotic outskirts of Jaipur, the Revuelto’s 'Città' (City) mode—running purely on electricity—felt eerily respectful to the waking villages. But as the Aravalli range thinned out and the NH11 opened its arms toward Nagaur, we switched to 'Corsa'. The transition from silent electric gliding to the raw, naturally aspirated scream of the 6.5L V12 is the greatest theater currently available on four wheels.
+    </p>
+
+    <div class="journey-box">
+      <div class="stat-column">
+        <h3>The Machine</h3>
+        <ul class="stat-list">
+          <li><strong>Heart</strong> 6.5L V12 + 3 Electric Motors</li>
+          <li><strong>Output</strong> 1,001 Combined HP</li>
+          <li><strong>Top Speed</strong> 350+ km/h</li>
+          <li><strong>Architecture</strong> Carbon Monofuselage</li>
+        </ul>
+      </div>
+      <div class="stat-column">
+        <h3>The Route</h3>
+        <ul class="stat-list">
+          <li><strong>Distance</strong> 558 Kilometers</li>
+          <li><strong>Terrain</strong> Tarmac, Sand-drifts, Village Bypasses</li>
+          <li><strong>Fuel</strong> 99 Octane (and a lot of prayer)</li>
+          <li><strong>Checkpoint</strong> The Longewala Turn-off</li>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    <h2>Navigating the Sands</h2>
+    <p>
+      Driving a low-slung supercar in Rajasthan is an exercise in tactical awareness. The Revuelto’s nose-lift system became our most used feature through the speed-breakers of rural towns. However, once on the Jodhpur-Jaisalmer stretch, the road becomes a black ribbon slicing through infinite yellow. Here, the Revuelto isn't a car; it’s a low-flying jet. The downforce generated by the active aero keeps the car sucked to the tarmac even as the desert crosswinds try to push you off course.
+    </p>
+
+    <h2>The Golden Hour</h2>
+    <p>
+      We reached Jaisalmer as the sun began its descent. The sandstone walls of the Sonar Quila (The Golden Fort) glowed in a hue that almost matched our 'Giallo Auge' paintwork. In Jaisalmer, time usually stands still, but for a brief moment, the futuristic silhouette of the Revuelto felt like a time-traveler that had finally found its destination.
+    </p>
+
+    <h2>The Verdict</h2>
+    <p>
+      The <i>Safar Nama</i> proved one thing: The Revuelto isn't just a track weapon for the Nürburgring. It is a grand tourer for the bold. It handled the heat, the dust, and the unpredictability of Indian highways with a level of sophistication we didn't expect from a 1,000hp monster. 
+    </p>
+
+    <p style="font-style: italic; color: #666; margin-top: 40px;">
+      In the desert, every drive is a story. This one was a symphony.
+    </p>
+  </article>
+
+  <script>
+    gsap.from("body", { opacity: 0, duration: 1.2, ease: "power2.out" });
+    gsap.from("header h1", { opacity: 0, y: 40, duration: 1, delay: 0.3, ease: "power3.out" });
+
+    function goBack(){
+      gsap.to("body", { opacity: 0, duration: 0.5, onComplete: () => window.history.back() });
+    }
+  </script>
+
+</body>
+</html>

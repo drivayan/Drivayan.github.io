@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Overlanding Essential Kit | DRIVAYAN</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    *{ margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat',sans-serif; }
+    body{ background:#050505; color:#fff; overflow-x:hidden; }
+
+    /* BACK BUTTON */
+    .back{ position:fixed; top:30px; left:30px; font-size:12px; letter-spacing:2px; color:#aaa; cursor:pointer; z-index:10; transition:0.3s; }
+    .back:hover{ color:#fff; }
+
+    /* HEADER */
+    header{ padding:140px 12% 60px; max-width:1200px; }
+    header h1{ font-family: 'Playfair Display', serif; font-size:clamp(2.8rem,6vw,5rem); font-weight:900; line-height:1.1; margin-bottom: 20px;}
+    header p{ font-size:12px; letter-spacing:4px; color:#777; text-transform: uppercase; }
+
+    /* ARTICLE BODY */
+    article{ padding:0 12% 140px; max-width:1000px; }
+    article p{ font-size:18px; line-height:1.9; color:#bbb; margin-bottom: 32px; font-weight: 300; }
+    article h2{ font-family: 'Playfair Display', serif; font-size: 32px; margin: 60px 0 24px; color: #fff; letter-spacing: 1px; border-left: 4px solid #fff; padding-left: 20px; }
+
+    /* GEAR SPEC BOX */
+    .gear-box {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 60px 0;
+      padding: 45px;
+      gap: 50px;
+    }
+    .gear-column h3 { font-size: 13px; letter-spacing: 3px; margin-bottom: 25px; color: #fff; text-transform: uppercase; opacity: 0.8; }
+    .gear-column.active h3 { color: #fbbf24; } /* Recovery Gear */
+    .gear-column.passive h3 { color: #60a5fa; } /* Support Gear */
+    .gear-list { list-style: none; }
+    .gear-list li { font-size: 15px; color: #999; margin-bottom: 18px; padding-left: 20px; position: relative; line-height: 1.5; }
+    .gear-list li strong { color: #ddd; display: block; margin-bottom: 4px; }
+    .gear-list li::before { content: '—'; position: absolute; left: 0; color: #444; }
+
+    /* PULL QUOTE */
+    .pull-quote {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        font-size: 26px;
+        color: #fff;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        padding: 40px 0;
+        margin: 60px 0;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    /* FILM GRAIN */
+    body::after{ content:''; position:fixed; inset:0; background:url("https://grainy-gradients.vercel.app/noise.svg"); opacity:0.05; pointer-events:none; z-index:999; }
+
+    @media(max-width:768px){
+      header, article{ padding-left:8%; padding-right:8%; }
+      .gear-box { grid-template-columns: 1fr; padding: 30px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="back" onclick="window.history.back()">← BACK</div>
+
+  <header>
+    <p>Gear & Gupshup</p>
+    <h1>The Overlanding Essential Kit: Beyond the Accessory Catalog</h1>
+  </header>
+
+  <article>
+    <p>
+      Overlanding has a marketing problem. If you spend five minutes on social media, you’d be convinced that you cannot leave the pavement without a ₹2-lakh roof-top tent, a snorkel, and enough LED light bars to be seen from the International Space Station. But at <i>DRIVAYAN</i>, we know the truth: the best overlanding kit isn’t the one that looks the best in a campsite photo; it’s the one that gets you home when the monsoon turns a trail into a river.
+    </p>
+
+    <p>
+      When the tarmac ends in the remote corners of Arunachal or the deep sands of Rajasthan, your vehicle ceases to be a status symbol and becomes a life-support system. Here is a curated breakdown of the recovery and survival gear that actually matters.
+    </p>
+
+    <h2>1. The Science of Traction</h2>
+    <p>
+      Before you invest in a winch, invest in <strong>Traction Boards</strong>. In the Indian context—where soft silt and slushy black cotton soil are common—traction boards (like Maxtrax or high-quality equivalents) are your first line of defense. They require no anchor point, no electricity, and zero mechanical knowledge. They are the simplest way to turn a "stuck" into a "story."
+    </p>
+
+    <div class="pull-quote">
+        "Recovery is not about brute force; it is about the management of friction and the respect for physics."
+    </div>
+
+    <h2>2. Kinetic Energy: The Invisible Tow</h2>
+    <p>
+      The traditional yellow tow strap you find in most "emergency kits" is a dangerous relic. It has no stretch, which means when the towing vehicle lunges, it sends a violent shock-load through both chassis. 
+    </p>
+    <p>
+      The essential upgrade is a <strong>Kinetic Recovery Rope</strong>. These ropes are designed to stretch up to 30%, using the kinetic energy of the lead vehicle to gently "slingshot" the stuck vehicle out. Paired with <strong>Soft Shackles</strong>—which are safer and lighter than traditional metal D-shackles—this setup minimizes the risk of flying metal should a component fail.
+    </p>
+
+    <div class="gear-box">
+      <div class="gear-column active">
+        <h3>THE RECOVERY CORE</h3>
+        <ul class="gear-list">
+          <li><strong>Kinetic Rope:</strong> Rated for at least 3x your vehicle's Gross Vehicle Weight (GVW).</li>
+          <li><strong>Traction Boards:</strong> Essential for self-recovery in sand and deep slush.</li>
+          <li><strong>Heavy-Duty Compressor:</strong> Because "airing down" to 15 PSI is the best free mod for traction.</li>
+          <li><strong>Long-Handle Shovel:</strong> The most underrated tool in the world. Digging is often the only way out.</li>
+        </ul>
+      </div>
+      <div class="gear-column passive">
+        <h3>THE SUPPORT SYSTEM</h3>
+        <ul class="gear-list">
+          <li><strong>Tire Plug Kit:</strong> A puncture in the wild is an inconvenience; two punctures are a crisis.</li>
+          <li><strong>Basic Tool Roll:</strong> Specifically 10mm, 12mm, and 14mm sockets (the holy trinity of Japanese/Indian cars).</li>
+          <li><strong>Fire Extinguisher:</strong> Mounted within arm's reach of the driver. No exceptions.</li>
+          <li><strong>Jump Starter:</strong> A portable lithium pack to avoid being stranded by a parasitic battery drain.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>3. The Air Management Strategy</h2>
+    <p>
+      If you are still driving on the trail with highway tire pressures, you are fighting a losing battle. Lowering your tire pressure increases the "footprint" of your tire, allowing you to float over obstacles rather than dig into them. However, you cannot air down if you cannot air back up. A high-output, hard-mounted or portable <strong>12V Air Compressor</strong> is the most utilized piece of gear in any veteran overlander's kit.
+    </p>
+
+    <h2>4. The Human Element: Gupshup & Wisdom</h2>
+    <p>
+      The most essential piece of kit isn't made of steel or nylon—it’s your <strong>Situational Awareness</strong>. No amount of gear can compensate for poor line choice or over-confidence. In our "Gupshup" sessions with seasoned trail-leaders, the advice is always the same: <i>Walk the obstacle before you drive it.</i> 
+    </p>
+    <p>
+      In India, "gear" also includes local intelligence. A map that works offline (like Gaia or OnX) and a satellite communicator (where legal) or a high-gain radio can be the difference between a cold night in the car and a warm bed at home.
+    </p>
+
+    <h2>The Verdict</h2>
+    <p>
+      Don't build a car for the internet; build it for the terrain. Start with the basics: tires, air management, and kinetic recovery. Everything else—the fridges, the awnings, the modular kitchens—is just luxury. The goal of overlanding is to explore the world, not to carry your entire house into it.
+    </p>
+    <p style="font-style: italic; color: #fff;">
+        Stay gritty. Stay prepared. See you where the road ends.
+    </p>
+  </article>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from("body", { opacity: 0, duration: 1.2, ease: "power2.out" });
+    gsap.from("header h1", { opacity: 0, y: 30, duration: 1, delay: 0.3 });
+    
+    gsap.utils.toArray("h2, p, .gear-box, .pull-quote").forEach(section => {
+      gsap.from(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 90%",
+        },
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        ease: "power2.out"
+      });
+    });
+  </script>
+
+</body>
+</html>
