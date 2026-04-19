@@ -4859,5 +4859,3 @@ Rules:
   </script>
 
 </body>
-
-</html>
