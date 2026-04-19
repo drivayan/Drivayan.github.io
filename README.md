@@ -22,7 +22,11 @@
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
     })();
-  </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8414217468850148"
+     crossorigin="anonymous">
+       
+       </script>
 
   <style>
     /* ===== THEME VARIABLES ===== */
