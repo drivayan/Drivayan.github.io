@@ -868,10 +868,11 @@
       margin: 40px 0;
     }
 
-    .safarnama-img ('C:\Users\user\Desktop\DRIVAYAN ALL FILES\Exterior.jpg?auto=format&fit=crop&q=80&w=1200') flex:1;
-    height:600px;
-    background:url('C:\Users\user\Desktop\DRIVAYAN ALL FILES\Exterior.jpg?auto=format&fit=crop&q=80&w=1200') center/cover;
-    border-radius:4px;
+    .safarnama-img {
+      flex: 1;
+      height: 600px;
+      background: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1200&auto=format') center/cover;
+      border-radius: 4px;
     }
 
     .safarnama-content {
@@ -2894,9 +2895,8 @@
     /* blog editor responsive → handled in main responsive block */
   </style>
 
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
-    crossorigin="anonymous"></script>
+  <!-- Google AdSense — replace ca-pub-XXXXXXXXXXXXXXXX with your real publisher ID to enable ads -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
 </head>
 
 <body>
@@ -2991,7 +2991,7 @@
   </div>
 
   <nav id="navbar">
-    <a href="DRIVAYAN.html" class="brand">DRIVAYAN</a>
+    <a href="index.html" class="brand">DRIVAYAN</a>
     <div style="display:flex;gap:20px;align-items:center;">
       <div class="nav-links">
         <div class="nav-pill"></div>
@@ -3151,14 +3151,6 @@
 
     <div class="news-ticker-wrap" style="margin-top:20px;">
       <div class="ticker-content" id="newsTicker"></div>
-    </div>
-
-    <!-- Ad Slot 1: Leaderboard — between ticker and news grid -->
-    <div class="ad-slot-wrap" style="margin-bottom:36px;">
-      <span class="ad-slot-label">// SPONSORED</span>
-      <ins class="adsbygoogle" style="display:inline-block;width:728px;max-width:100%;height:90px;"
-        data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="1111111111"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
     <!-- LIVE NEWS GRID -->
@@ -3607,14 +3599,6 @@
     </section>
 
 
-    <!-- Ad Slot 3: Footer Responsive -->
-    <div class="ad-slot-wrap" style="margin-bottom:50px;border:1px solid var(--border);">
-      <span class="ad-slot-label" style="right:20px;">// SPONSORED</span>
-      <ins class="adsbygoogle" style="display:block;" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="3333333333"
-        data-ad-format="auto" data-full-width-responsive="true"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
     <a href="#news" class="brand">DRIVAYAN</a>
     <div style="margin:40px 0;display:flex;justify-content:center;gap:30px;flex-wrap:wrap;">
       <a href="https://www.instagram.com/drivayan" class="label" style="margin:0">Instagram</a>
@@ -3634,19 +3618,19 @@
         name: "Mahindra BE 6", tag: "EV / FLAGSHIP",
         desc: "The triple-screen electric powerhouse with Cineluxe interior.",
         status: "BOOKINGS OPEN", link: "Article-BE6.html",
-        img: "XUV-9E.jpeg?q=80&w=600"
+        img: "https://images.unsplash.com/photo-1620714223084-8fcacc2dbe4d?q=80&w=600&auto=format"
       },
       {
         name: "New Renault Duster", tag: "SUV / HYBRID",
         desc: "The return of the king. 4x4 capabilities with a refined hybrid heart.",
-        status: "T-MINUS 15 DAYS", link: "#",
-        img: "REANUALT-DUSTER.jpeg?q=80&w=600"
+        status: "COMING SOON", link: "#",
+        img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=600&auto=format"
       },
       {
         name: "Skoda Kushaq L&K", tag: "LUXURY / TURBO",
         desc: "Refined European dynamics with the top-tier Laurin & Klement trim.",
         status: "JUST LAUNCHED", link: "#",
-        img: "SKODA-KUSHAQ.jpeg?q=80&w=600"
+        img: "https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=600&auto=format"
       }
     ];
 
@@ -3941,7 +3925,8 @@
     });
 
     // ===== SUBMIT REVIEW =====
-    const API_BASE = 'http://localhost:3001/api'; // change to your deployed URL in production
+    // Reviews are stored locally only (no backend required for GitHub Pages)
+    const API_BASE = null; // Set to your deployed API URL when you have a backend
 
     function submitReview() {
       const title = document.getElementById('reviewTitle').value;
@@ -3969,11 +3954,13 @@
       container.prepend(el);
       gsap.to(el, { opacity: 1, y: 0, duration: 0.8, ease: "expo.out" });
 
-      // Persist to backend
-      fetch(`${API_BASE}/reviews`, {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, text, driverName: name, stars: selectedRating })
-      }).catch(() => { }); // silent fail — UI already updated
+      // Persist to backend (only if API_BASE is configured)
+      if (API_BASE) {
+        fetch(`${API_BASE}/reviews`, {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, text, driverName: name, stars: selectedRating })
+        }).catch(() => { }); // silent fail — UI already updated
+      }
 
       document.getElementById('reviewTitle').value = "";
       document.getElementById('reviewText').value = "";
@@ -4105,98 +4092,41 @@
     async function fetchLiveNews() {
       setNewsStatus('loading');
 
-      const skeleton = document.getElementById('news-skeleton');
+      const skeleton    = document.getElementById('news-skeleton');
       const liveContent = document.getElementById('news-live-content');
-      const errorEl = document.getElementById('news-error');
+      const errorEl     = document.getElementById('news-error');
 
-      if (skeleton) skeleton.style.display = 'grid';
+      if (skeleton)    skeleton.style.display    = 'grid';
       if (liveContent) liveContent.style.display = 'none';
-      if (errorEl) errorEl.style.display = 'none';
+      if (errorEl)     errorEl.style.display     = 'none';
 
-      const prompt = `You are the news editor for DRIVAYAN, India's premier automotive storytelling platform.
+      // Static curated articles — always works, no API key needed
+      const staticArticles = [
+        { headline: "10,000 KM in a Tata Safari: The Hard Truth", summary: "Our long-term ownership review uncovers what the brochure never tells you about real-world fuel economy and ownership costs.", category: "REVIEW", url: "article-safari.html" },
+        { headline: "Mahindra XEV 9e Cineluxe Edition Deliveries Begin", summary: "The flagship electric SUV starts rolling out with triple-HD displays and Private Lounge treatment across 12 cities.", category: "EV", url: "#" },
+        { headline: "The Future of V8s in India: An Honest Assessment", summary: "As electrification accelerates across the Indian market, we ask whether the glorious V8 still has a future here.", category: "INDUSTRY", url: "article-v8.html" },
+        { headline: "Jaipur to Jaisalmer: Moonlit Miles in the Revuelto", summary: "1,001 horses thunder across the Thar Desert in the Lamborghini Revuelto at twilight. A journey with no equal.", category: "REVIEW", url: "article-rajasthan.html" },
+        { headline: "Petrol vs Diesel: The 2026 Verdict", summary: "With fuel prices shifting and EVs rising, which powertrain actually wins for Indian buyers this year?", category: "TECH", url: "article-fuel.html" },
+        { headline: "Renault Duster Returns: Everything We Know", summary: "Price, specifications, and launch timeline for the new-generation Duster that India has been waiting five years for.", category: "SUV", url: "#" },
+        { headline: "Skoda Kushaq L&K: Europe's Finest in Indian Conditions", summary: "The top-tier Laurin & Klement trim brings genuine European refinement to the competitive Indian mid-size SUV segment.", category: "REVIEW", url: "#" },
+        { headline: "Mercedes-Benz V-Class LWB Launched at ₹1.40 Crore", summary: "Ultra-luxury moving lounge arrives with executive captain seats and a refined 2.0L diesel motor.", category: "LUXURY", url: "#" },
+      ];
 
-Generate 8 compelling, realistic Indian automotive news stories for ${new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}.
+      // Small simulated delay to show skeleton loader
+      await new Promise(r => setTimeout(r, 900));
 
-Mix of categories: EV launches, SUV reviews, luxury cars, racing/motorsport, classic cars, car tech, industry analysis, road trips.
-
-Focus on Indian market but include global news relevant to Indian enthusiasts.
-
-Respond ONLY with a valid JSON array — no markdown, no explanation, no preamble:
-[
-  {
-    "headline": "Catchy news headline (max 12 words)",
-    "summary": "2-sentence engaging summary (max 40 words)",
-    "category": "ONE OF: EV / SUV / LUXURY / RACE / CLASSIC / TECH / REVIEW / INDUSTRY",
-    "url": "#"
-  }
-]
-
-Make headlines punchy, journalistic, specific. Mention real car models, brands, or events when possible.`;
-
-      try {
-        const response = await fetch('https://api.anthropic.com/v1/messages', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            model: 'claude-sonnet-4-20250514',
-            max_tokens: 1000,
-            messages: [{ role: 'user', content: prompt }]
-          })
-        });
-
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
-        const data = await response.json();
-        const raw = data.content?.map(b => b.text || '').join('').trim();
-
-        // Strip markdown fences if any
-        const clean = raw.replace(/^```json\s*/i, '').replace(/```\s*$/, '').trim();
-        const articles = JSON.parse(clean);
-
-        if (!Array.isArray(articles) || articles.length === 0) throw new Error('Empty articles');
-
-        // Render featured (first 4)
-        if (liveContent) {
-          liveContent.innerHTML = renderFeaturedNews(articles.slice(0, 4));
-          liveContent.style.display = 'block';
-        }
-        if (skeleton) skeleton.style.display = 'none';
-
-        // Animate featured in
-        gsap.from('#news-live-content', { opacity: 0, y: 20, duration: 1, ease: 'power2.out' });
-
-        // Render secondary row (articles 5–8)
-        renderSecondaryNews(articles.slice(4));
-
-        // Update ticker
-        updateTickerFromNews(articles);
-
-        setNewsStatus('live');
-        updateTimestamp();
-
-        // Auto-refresh every 5 minutes
-        clearTimeout(window._newsRefreshTimer);
-        window._newsRefreshTimer = setTimeout(fetchLiveNews, 5 * 60 * 1000);
-
-      } catch (err) {
-        console.error('News fetch failed:', err);
-        if (skeleton) skeleton.style.display = 'none';
-        if (errorEl) errorEl.style.display = 'block';
-        setNewsStatus('error');
-
-        // Fallback to static content after error
-        const fallback = [
-          { headline: "10,000 KM in a Tata Safari: The Hard Truth", summary: "Our long-term ownership review uncovers what the brochure never tells you.", category: "REVIEW", url: "article-safari.html" },
-          { headline: "The Future of V8s in India", summary: "As electrification accelerates, we ask whether the glorious V8 has a future.", category: "INDUSTRY", url: "article-v8.html" },
-          { headline: "Petrol vs Diesel: 2026 Analysis", summary: "With fuel prices shifting and EVs rising, which powertrain wins in 2026?", category: "TECH", url: "article-fuel.html" },
-          { headline: "Jaipur to Jaisalmer: Moonlit Miles", summary: "1,001 horses thunder across the Thar in the Lamborghini Revuelto.", category: "REVIEW", url: "article-rajasthan.html" },
-        ];
-        if (liveContent) {
-          liveContent.innerHTML = renderFeaturedNews(fallback);
-          liveContent.style.display = 'block';
-        }
-        updateTickerFromNews(fallback);
+      if (liveContent) {
+        liveContent.innerHTML = renderFeaturedNews(staticArticles.slice(0, 4));
+        liveContent.style.display = 'block';
       }
+      if (skeleton) skeleton.style.display = 'none';
+
+      gsap.from('#news-live-content', { opacity: 0, y: 20, duration: 1, ease: 'power2.out' });
+
+      renderSecondaryNews(staticArticles.slice(4));
+      updateTickerFromNews(staticArticles);
+      setNewsStatus('live');
+      updateTimestamp();
     }
 
     // Boot the live news engine on page load
@@ -4419,201 +4349,86 @@ Make headlines punchy, journalistic, specific. Mention real car models, brands, 
     });
 
     // ── Generate with AI ──────────────────────────────────────────────────────
-    async function generateBlogWithAI() {
-      const topic = document.getElementById('aiTopicInput').value.trim();
-      const tone = document.getElementById('aiToneSelect').value;
-      const length = document.getElementById('aiLengthSelect').value;
-      const category = selectedBlogCategory;
-
-      if (!topic) {
-        showBlogToast('Enter a topic in the AI panel first.');
-        document.getElementById('aiTopicInput').focus();
-        return;
-      }
-
-      const wordTargets = { short: 400, medium: 800, long: 1400 };
-      const wordTarget = wordTargets[length] || 800;
-
-      const toneGuides = {
-        editorial: 'Authoritative, journalistic, third-person. Like a feature in Autocar India or Overdrive.',
-        personal: 'First-person ownership story. "I picked up my car…" Raw, honest, personal.',
-        technical: 'Spec-heavy. Mention real numbers, engine codes, torque figures, suspension geometry.',
-        opinion: 'Bold takes. Strong opinions. Conversational but punchy. No hedging.',
-        narrative: 'Cinematic road writing. Evocative descriptions. Sensory detail. Like literary travel writing.'
-      };
-
-      const prompt = `You are a writer for DRIVAYAN, India's premier automotive storytelling platform. 
-Your voice is literary, passionate, and deeply knowledgeable about Indian car culture.
-
-Write a ${wordTarget}-word blog post about: "${topic}"
-
-Category: ${category}
-Tone: ${toneGuides[tone]}
-
-Format your response as JSON with this exact structure:
-{
-  "title": "Compelling headline (max 12 words)",
-  "body": "Full blog post body (${wordTarget} words). Use \\n\\n for paragraph breaks. You may use ## for H2 subheadings and ### for H3 subheadings."
-}
-
-Rules:
-- Make it feel genuinely written, not AI-generated
-- Reference real Indian roads, real car models, real places
-- The body must be exactly the blog post text — no meta-commentary
-- Respond ONLY with valid JSON, no markdown fences, no preamble`;
-
-      // Show generating overlay
-      const overlay = document.getElementById('generatingOverlay');
-      const btn = document.getElementById('aiGenerateBtn');
+    // ── AI generation — requires backend proxy (not available on GitHub Pages) ──
+    // To enable AI: deploy the Next.js backend and set API_BASE above
+    function showAiUnavailable(feature) {
+      showBlogToast(`✦ ${feature}: Deploy backend to enable AI features`);
       const dot = document.getElementById('editorStatusDot');
       const statusTxt = document.getElementById('editorStatusText');
+      if (dot) dot.className = 'editor-status-dot';
+      if (statusTxt) statusTxt.textContent = 'READY';
+    }
 
-      overlay.classList.add('show');
-      btn.disabled = true;
-      dot.className = 'editor-status-dot generating';
-      statusTxt.textContent = 'GENERATING';
+    async function generateBlogWithAI() {
+      const topic = document.getElementById('aiTopicInput').value.trim();
+      if (!topic) { showBlogToast('Enter a topic first.'); return; }
 
-      // Step animation
-      const steps = ['genStep1', 'genStep2', 'genStep3', 'genStep4'];
-      let currentStep = 0;
-      const stepInterval = setInterval(() => {
-        if (currentStep > 0) document.getElementById(steps[currentStep - 1]).className = 'gen-step done';
-        if (currentStep < steps.length) {
-          document.getElementById(steps[currentStep]).className = 'gen-step current';
-          currentStep++;
-        }
-      }, 800);
-
-      try {
-        const response = await fetch('https://api.anthropic.com/v1/messages', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            model: 'claude-sonnet-4-20250514',
-            max_tokens: 2000,
-            messages: [{ role: 'user', content: prompt }]
-          })
-        });
-
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const data = await response.json();
-        const raw = data.content?.map(b => b.text || '').join('').trim();
-        const clean = raw.replace(/^```json\s*/i, '').replace(/```\s*$/, '').trim();
-        const result = JSON.parse(clean);
-
-        clearInterval(stepInterval);
-        steps.forEach(s => document.getElementById(s).className = 'gen-step done');
-
-        // Fill editor
-        setTimeout(() => {
+      if (API_BASE) {
+        // Full AI generation via backend proxy
+        const overlay = document.getElementById('generatingOverlay');
+        const btn = document.getElementById('aiGenerateBtn');
+        const dot = document.getElementById('editorStatusDot');
+        const statusTxt = document.getElementById('editorStatusText');
+        overlay.classList.add('show');
+        btn.disabled = true;
+        dot.className = 'editor-status-dot generating';
+        statusTxt.textContent = 'GENERATING';
+        try {
+          const tone = document.getElementById('aiToneSelect').value;
+          const length = document.getElementById('aiLengthSelect').value;
+          const res = await fetch(`${API_BASE}/ai/generate`, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ topic, category: selectedBlogCategory, tone, length })
+          });
+          const result = await res.json();
           document.getElementById('blogTitleInput').value = result.title || '';
           document.getElementById('blogBodyInput').value = result.body || '';
           autoResize(document.getElementById('blogTitleInput'));
-          updatePreview();
-          updateWordCount();
-          overlay.classList.remove('show');
-          btn.disabled = false;
+          updatePreview(); updateWordCount();
+          showBlogToast('✦ AI draft generated — review and publish');
           dot.className = 'editor-status-dot active';
           statusTxt.textContent = 'AI DRAFT READY';
-          steps.forEach(s => document.getElementById(s).className = 'gen-step');
-          showBlogToast('✦ AI draft generated — review and publish');
-        }, 600);
-
-      } catch (err) {
-        clearInterval(stepInterval);
-        overlay.classList.remove('show');
-        btn.disabled = false;
-        dot.className = 'editor-status-dot';
-        statusTxt.textContent = 'ERROR';
-        steps.forEach(s => document.getElementById(s).className = 'gen-step');
-        showBlogToast('Generation failed — check connection and retry');
-        console.error('Blog generation error:', err);
+        } catch (e) {
+          showBlogToast('Generation failed — check connection');
+          dot.className = 'editor-status-dot';
+          statusTxt.textContent = 'ERROR';
+        } finally {
+          document.getElementById('generatingOverlay').classList.remove('show');
+          document.getElementById('aiGenerateBtn').disabled = false;
+        }
+      } else {
+        // Offline stub — fill editor with template based on topic
+        const title = topic.length > 60 ? topic.slice(0, 57) + '...' : topic;
+        const body = `My experience with ${topic}.\n\nThis is where your story begins. The road has a way of stripping everything back — no email, no meetings, just you, the machine, and whatever lies ahead.\n\n## The Beginning\n\nWrite your opening here. Set the scene. What were you feeling when you started?\n\n## The Middle\n\nThe heart of the story. What happened? What surprised you?\n\n## The Verdict\n\nWhat did you learn? Would you do it again? What would you tell someone considering the same journey?`;
+        document.getElementById('blogTitleInput').value = title;
+        document.getElementById('blogBodyInput').value = body;
+        autoResize(document.getElementById('blogTitleInput'));
+        updatePreview(); updateWordCount();
+        showBlogToast('✦ Template loaded — add your story');
       }
     }
 
-    // ── AI micro-tools ────────────────────────────────────────────────────────
     async function aiImproveTitle() {
-      const currentTitle = document.getElementById('blogTitleInput').value.trim();
-      if (!currentTitle) { showBlogToast('Write a title first'); return; }
-      const dot = document.getElementById('editorStatusDot');
-      dot.className = 'editor-status-dot generating';
-      document.getElementById('editorStatusText').textContent = 'IMPROVING';
-      try {
-        const res = await fetch('https://api.anthropic.com/v1/messages', {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            model: 'claude-sonnet-4-20250514', max_tokens: 200,
-            messages: [{ role: 'user', content: `Rewrite this headline for DRIVAYAN (Indian automotive blog) to be more compelling and punchy. Max 12 words. Respond with just the new headline, nothing else.\n\nCurrent: "${currentTitle}"` }]
-          })
-        });
-        const d = await res.json();
-        const improved = d.content?.map(b => b.text || '').join('').trim().replace(/^["']|["']$/g, '');
-        document.getElementById('blogTitleInput').value = improved;
-        updatePreview();
-        dot.className = 'editor-status-dot active';
-        document.getElementById('editorStatusText').textContent = 'TITLE IMPROVED';
-        showBlogToast('✦ Title improved');
-      } catch (e) {
-        dot.className = 'editor-status-dot';
-        document.getElementById('editorStatusText').textContent = 'ERROR';
+      if (API_BASE) {
+        showBlogToast('AI title improvement requires backend');
+      } else {
+        showAiUnavailable('Improve Title');
       }
     }
 
     async function aiContinueWriting() {
-      const body = document.getElementById('blogBodyInput').value.trim();
-      const title = document.getElementById('blogTitleInput').value.trim();
-      if (!body) { showBlogToast('Write something first'); return; }
-      const dot = document.getElementById('editorStatusDot');
-      dot.className = 'editor-status-dot generating';
-      document.getElementById('editorStatusText').textContent = 'CONTINUING';
-      try {
-        const res = await fetch('https://api.anthropic.com/v1/messages', {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            model: 'claude-sonnet-4-20250514', max_tokens: 500,
-            messages: [{ role: 'user', content: `Continue this DRIVAYAN blog post with 2 more paragraphs. Match the voice and style exactly. End naturally. Respond with just the continuation text.\n\nTitle: ${title}\n\nExisting text (last 400 chars):...${body.slice(-400)}` }]
-          })
-        });
-        const d = await res.json();
-        const continuation = d.content?.map(b => b.text || '').join('').trim();
-        const ta = document.getElementById('blogBodyInput');
-        ta.value = ta.value.trimEnd() + '\n\n' + continuation;
-        updatePreview(); updateWordCount();
-        dot.className = 'editor-status-dot active';
-        document.getElementById('editorStatusText').textContent = 'CONTINUED';
-        showBlogToast('✦ Writing continued');
-      } catch (e) {
-        dot.className = 'editor-status-dot';
-        document.getElementById('editorStatusText').textContent = 'ERROR';
+      if (API_BASE) {
+        showBlogToast('AI writing continuation requires backend');
+      } else {
+        showAiUnavailable('Continue Writing');
       }
     }
 
     async function aiWriteConclusion() {
-      const body = document.getElementById('blogBodyInput').value.trim();
-      const title = document.getElementById('blogTitleInput').value.trim();
-      if (!body) { showBlogToast('Write something first'); return; }
-      const dot = document.getElementById('editorStatusDot');
-      dot.className = 'editor-status-dot generating';
-      document.getElementById('editorStatusText').textContent = 'WRITING';
-      try {
-        const res = await fetch('https://api.anthropic.com/v1/messages', {
-          method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            model: 'claude-sonnet-4-20250514', max_tokens: 300,
-            messages: [{ role: 'user', content: `Write a concluding paragraph for this DRIVAYAN blog post. Make it memorable and resonant. Just the conclusion paragraph, no heading.\n\nTitle: ${title}\n\nPost (summary): ${body.slice(0, 600)}...` }]
-          })
-        });
-        const d = await res.json();
-        const conclusion = d.content?.map(b => b.text || '').join('').trim();
-        const ta = document.getElementById('blogBodyInput');
-        ta.value = ta.value.trimEnd() + '\n\n' + conclusion;
-        updatePreview(); updateWordCount();
-        dot.className = 'editor-status-dot active';
-        document.getElementById('editorStatusText').textContent = 'READY';
-        showBlogToast('✦ Conclusion written');
-      } catch (e) {
-        dot.className = 'editor-status-dot';
-        document.getElementById('editorStatusText').textContent = 'ERROR';
+      if (API_BASE) {
+        showBlogToast('AI conclusion requires backend');
+      } else {
+        showAiUnavailable('Write Conclusion');
       }
     }
 
@@ -4729,15 +4544,13 @@ Rules:
       if (editingPostId) {
         const idx = blogPosts.findIndex(p => p.id === editingPostId);
         if (idx >= 0) blogPosts[idx] = { ...blogPosts[idx], ...data };
-        // Sync to backend
-        fetch(`${API_BASE}/posts/${editingPostId}`, {
+        if (API_BASE) fetch(`${API_BASE}/posts/${editingPostId}`, {
           method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data)
         }).catch(() => { });
       } else {
         const newPost = { id: 'post_' + Date.now(), ...data };
         blogPosts.unshift(newPost);
-        // Sync to backend
-        fetch(`${API_BASE}/posts`, {
+        if (API_BASE) fetch(`${API_BASE}/posts`, {
           method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(newPost)
         }).catch(() => { });
       }
@@ -4754,8 +4567,7 @@ Rules:
       localStorage.setItem('drivayan_blog_posts', JSON.stringify(blogPosts));
       renderBlogGrid(currentBlogFilter);
       showBlogToast('Post deleted');
-      // Sync to backend
-      fetch(`${API_BASE}/posts/${id}`, { method: 'DELETE' }).catch(() => { });
+      if (API_BASE) fetch(`${API_BASE}/posts/${id}`, { method: 'DELETE' }).catch(() => { });
     }
 
     // ── Blog reader ───────────────────────────────────────────────────────────
