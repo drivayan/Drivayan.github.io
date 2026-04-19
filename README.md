@@ -7,6 +7,7 @@
   <meta name="description" content="DRIVAYAN - Cinematic journeys, owner stories, and Indian car culture decoded.">
   <meta property="og:title" content="DRIVAYAN — Where Every Drive Tells a Story">
   <meta property="og:type" content="website">
+  <meta name="google-adsense-account" content="ca-pub-8414217468850148">
 
   <link rel="preconnect" href="https://fonts.googleapis.com/">
   <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
