@@ -2090,6 +2090,9 @@
     <a href="https://www.instagram.com/drivayan" class="label" style="margin:0">Instagram</a>
     <a href="https://www.facebook.com/Drivayan"  class="label" style="margin:0">Facebook</a>
     <a href="https://www.youtube.com/@drivayan"  class="label" style="margin:0">YouTube</a>
+    <a href="https://x.com/Drivayan"  class="label" style="margin:0">X/Twitter</a>
+    <a href="https://pin.it/5xfUELK6o"  class="label" style="margin:0">Pintrest</a>
+    <a href="https://www.reddit.com/r/drivayan/"  class="label" style="margin:0">Reddit</a>
     <a href="shop.html" class="label" style="margin:0;color:var(--accent);">Garage Shop</a>
     <a href="javascript:void(0)" class="label" id="openLogin" style="margin:0;color:var(--text);">Login</a>
     <a href="#" class="label" style="margin:0">Privacy</a>
